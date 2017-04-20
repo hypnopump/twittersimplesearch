@@ -4,6 +4,8 @@ Your time is valuable, don't spend it searching. Just type in the query and let 
 
 Easy, Fast, Simple.
 
+Try it: http://twittersimplesearch.herokuapp.com
+
 # To install Twitter Simple Search
 
 ```
