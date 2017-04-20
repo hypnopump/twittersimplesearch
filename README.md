@@ -10,6 +10,7 @@ Try it: http://twittersimplesearch.herokuapp.com
 
 ```
 git clone ...
+cd twittersimplesearch
 pip install flask
 pip install request
 replace app.py last line (deploying by debugging)
