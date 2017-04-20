@@ -12,7 +12,7 @@ Try it: http://twittersimplesearch.herokuapp.com
 git clone ...
 cd twittersimplesearch
 pip install flask
-pip install request
+pip install requests
 replace app.py last line (deploying by debugging)
 python app.py
 ```
