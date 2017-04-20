@@ -1,9 +1,5 @@
 #-*- coding: utf-8 -*-
-"""
-	Code written by Eric Alcaide - https://github.com/EricAlcaide
-	Requirements:
-	- request (installation: pip install request)
-"""
+# Code written by Eric Alcaide - https://github.com/EricAlcaide
 
 import sys
 import requests
@@ -35,5 +31,3 @@ def serveData(query):
 	organized = organizeData(unformated)
 
 	return organized
-
-# print(serveData("hello"))

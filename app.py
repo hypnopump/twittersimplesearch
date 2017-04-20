@@ -3,6 +3,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import jsonify
+import os
 import loklak_handler
 
 app = Flask(__name__)
@@ -15,7 +16,10 @@ def web():
 def search():
 	query = request.form['query']
 	result = loklak_handler.serveData(query)
-	json_response = "../response/"+query+"/"
+	if len(query) != 0:
+		json_response = "../response/"+query+"/"
+	else:
+		json_response = "../no_response/"
 
 	return render_template('result.html', list = result, json_response = json_response)
 
@@ -23,13 +27,13 @@ def search():
 def JSONresponse(query):
 	return jsonify(loklak_handler.serveData(query))
 
-# @app.route('/test/')
-# def test():
-# 	username = "@eric_alcaide"
-# 	user = "Eric"
-# 	text = "This is a test lol"
-# 	link = "https://github.com/EricAlcaide"
-# 	return render_template('result.html', username = username, user = user, link = link, text = text)
+@app.route('/no_response/')
+def JSONnull_response():
+	return jsonify([{"Result": "No query specified, no results obtained"}])
 
 if __name__ == '__main__':
-    app.run()
+	# Deploying
+	port = int(os.environ.get("PORT", 5000))
+	app.run(host='0.0.0.0', port=port)
+	# Debugging
+	# app.run(debug=True, host='0.0.0.0')
